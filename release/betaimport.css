@@ -1,0 +1,251 @@
+/*//META{"name":"Neumocord","description":"Discord, but neumorphic","author":"Luke Alan","version":"0.1"}*//**/
+/*
+ Copyright Luke Alan 2020, all Google material assets are copyright of Google Inc.
+/* 
+ Note:
+    To begin this off,
+    I want to make this theme neumorphic,
+    but there is really no consistent design.
+    I don't see this looking very visually appealing for a while, but given the design is new,
+    everything is bound to be changing irregardless of what the current "standard" is
+ */
+/* 
+ Design Guidelines:
+    Toggleswitches will not be squared, instead they will be rounded.
+    No element is to be animated via rotation (eg, settings cog when :active [upon being clicked])
+    Animated elements (like profile popouts) can have an animation as if they were raising from the surface via the shadow
+ */
+/* Root Values */
+:root{
+    /* Default Discord Values */
+    --background-primary: #282b2f;
+    --background-secondary: #282b2f;
+    --background-secondary-alt: #282b2f;
+    --background-tertiary: #282b2f;
+    --background-accent: #282b2f;
+    --background-floating: #282b2f;
+    --background-mobile-primary: #282b2f;
+    --background-mobile-secondary: #282b2f;
+    --channeltextarea-background: #282b2f;
+    /* Neumoocord Values */
+    --neumo-background: #282b2f;
+    --neumo-accent: #36b5ff;
+    --neumo-circular-shadow-inset: inset 6px 6px 10px #323232, inset -6px -6px 10px #3e3e3e;
+    --neumo-circular-shadow:  6px 6px 16px #323232, -6px -6px 16px #3e3e3e;
+    --neumo-shadow-blur: 16px;
+}
+/* -- Background Color Changes/Misc -- */
+.theme-dark .container-1D34oG,
+.theme-dark .headerNormal-T_seeN,
+.theme-dark .body-3iLsc4, .theme-dark .footer-1fjuF6{
+    background: var(--neumo-background)!important;
+}
+/* -- Force User Disable Light Mode -- */
+.theme-light #app-mount::before{
+    content:"";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #282b2f;
+    z-index: 101;
+}
+.theme-light #app-mount::after{
+    content: "Neumocord is not intended for light mode. \A Please disable it in settings";
+    width: 100%;
+    top: 35%;
+    white-space: pre-wrap;
+    text-align: center;
+    position: absolute;
+    z-index: 101;
+    color: #fff;
+    font-weight: 450;
+    font-size: 24pt;
+}
+.theme-light .container-3baos1{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: calc(100vw - 144px);
+    height: 125%;
+    align-items: center; justify-content: center; flex-direction: column;
+}
+.theme-light .container-3baos1 .avatarWrapper-2yR4wp,
+.theme-light .container-3baos1 .nameTag-3uD-yy,
+.theme-light .container-3baos1 .button-14-BFJ:not(:nth-child(3)),
+.theme-light .container-3baos1 .button-14-BFJ:nth-child(3) .contents-18-Yxp svg path{
+    display: none!important;
+}
+.theme-light .container-3baos1 .button-14-BFJ:nth-child(3){
+    border-radius: 50%;
+    background: var(--neumo-background);
+    box-shadow:  6px 6px 8px #222528, -6px -6px 8px #2e3136, inset 0px 0px 0px #222528, inset 0px 0px 0px #2e3136;
+    transition: box-shadow 100ms ease;
+}
+.theme-light .container-3baos1 .button-14-BFJ:nth-child(3):active{
+    box-shadow: 0px 0px 0px #222528, 0px 0px 0px #2e3136, inset 6px 6px 8px #222528, inset -6px -6px 8px #2e3136!important;
+
+}
+.theme-light .container-3baos1 .button-14-BFJ:nth-child(3),
+.theme-light .container-3baos1 .button-14-BFJ:nth-child(3) .contents-18-Yxp svg{
+    z-index: 1001;
+    width: 128px;
+    height: 128px;
+}
+.theme-light .container-3baos1 .button-14-BFJ:nth-child(3) .contents-18-Yxp svg{
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xOS40MyAxMi45OGMuMDQtLjMyLjA3LS42NC4wNy0uOThzLS4wMy0uNjYtLjA3LS45OGwyLjExLTEuNjVjLjE5LS4xNS4yNC0uNDIuMTItLjY0bC0yLTMuNDZjLS4xMi0uMjItLjM5LS4zLS42MS0uMjJsLTIuNDkgMWMtLjUyLS40LTEuMDgtLjczLTEuNjktLjk4bC0uMzgtMi42NUMxNC40NiAyLjE4IDE0LjI1IDIgMTQgMmgtNGMtLjI1IDAtLjQ2LjE4LS40OS40MmwtLjM4IDIuNjVjLS42MS4yNS0xLjE3LjU5LTEuNjkuOThsLTIuNDktMWMtLjIzLS4wOS0uNDkgMC0uNjEuMjJsLTIgMy40NmMtLjEzLjIyLS4wNy40OS4xMi42NGwyLjExIDEuNjVjLS4wNC4zMi0uMDcuNjUtLjA3Ljk4cy4wMy42Ni4wNy45OGwtMi4xMSAxLjY1Yy0uMTkuMTUtLjI0LjQyLS4xMi42NGwyIDMuNDZjLjEyLjIyLjM5LjMuNjEuMjJsMi40OS0xYy41Mi40IDEuMDguNzMgMS42OS45OGwuMzggMi42NWMuMDMuMjQuMjQuNDIuNDkuNDJoNGMuMjUgMCAuNDYtLjE4LjQ5LS40MmwuMzgtMi42NWMuNjEtLjI1IDEuMTctLjU5IDEuNjktLjk4bDIuNDkgMWMuMjMuMDkuNDkgMCAuNjEtLjIybDItMy40NmMuMTItLjIyLjA3LS40OS0uMTItLjY0bC0yLjExLTEuNjV6TTEyIDE1LjVjLTEuOTMgMC0zLjUtMS41Ny0zLjUtMy41czEuNTctMy41IDMuNS0zLjUgMy41IDEuNTcgMy41IDMuNS0xLjU3IDMuNS0zLjUgMy41eiIvPjwvc3ZnPg==");
+    background-repeat: no-repeat;
+    background-size: 128px;
+}
+/* Settings */
+.sidebarRegion-VFTUkN,
+.standardSidebarView-3F1I7i{
+    z-index: 102;
+}
+.userSettingsAccount-1eMFVR > .contentColumn-2hrIYH{
+    display: none
+}
+.theme-light div[layer-id="user-settings"]::before{
+    content: "";
+    background: var(--neumo-background);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 102;
+}
+.theme-light .side-8zPYf6 div:not(:nth-child(19)){
+    display: none;
+}
+.theme-light div[layer-id="user-settings"]{
+    z-index: 102;
+}
+/* -- Profile Mini Popout -- */
+.fade-18lLrh{
+    opacity: 1;
+}
+.layerContainer-yqaFcK .wrapper-3t9DeA::before{
+    content:"";
+    background: var(--neumo-background);
+    position: absolute;
+    left: -8px;
+    top: -8px;  
+    border-radius: 50%;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    box-shadow: inset 6px 6px 6px #222528, inset -6px -6px 6px #2e3136;
+}
+.layerContainer-yqaFcK .wrapper-3t9DeA::after{
+    content:"";
+    position: absolute;
+    left: -8px;
+    top: -8px;  
+    border-radius: 50%;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+}
+.userPopout-3XzG_A{
+    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+}
+.headerNormal-T_seeN .headerTag-2pZJzA{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-cIJ7To{
+    border-color: rgba(0,0,0,0.1);
+    background-color: var(--neumo-background);
+    border-radius: 6px;
+    transition: border-color 150ms ease;
+}
+.input-cIJ7To:hover{
+    border-color: rgba(0,0,0,0.215)
+}
+.input-cIJ7To:focus{
+    border-color: var(--neumo-accent)!important;
+}
+.input-cIJ7To::placeholder{
+    color: var(--neumo-accent);
+}
+/* -- Full Profile Popout -- */
+.connectedAccount-36nQx7{
+    border-radius: 16px;
+    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+    border: none!important;
+    background: var(--neumo-background);
+}
+.userInfoSection-2acyCx+.userInfoSection-2acyCx{
+    border: none!important;
+}
+.lookFilled-1Gx00P.colorGreen-29iAKY{
+    border-radius: 16px;
+}
+.tabBarContainer-1s1u-z{
+    border-top: none!important;
+    padding: 0 15px 0 15px;
+    height: 65px;
+}
+.tabBar-2MuP6-{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    border-radius: 128px;
+}
+.topSectionNormal-2-vo2m .tabBar-2MuP6-{
+    background: var(--neumo-background);
+    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+}
+.tabBarItem-1b8RUP{
+    height: 40px;
+    padding: 0 25px 0 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 25px;
+    border: none!important;
+}
+.topSectionNormal-2-vo2m .tabBarItem-1b8RUP:not(.selected-3s45Ha){
+    color: var(--neumo-accent);
+}
+.topSectionNormal-2-vo2m .tabBarItem-1b8RUP.selected-3s45Ha{
+    background: var(--neumo-background);
+    box-shadow: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438
+}
+/* Active in Presence */
+.topSectionPlaying-1J5E4n{
+    background: var(--neumo-accent)
+}
+.headerFill-adLl4x{
+    background: transparent!important;
+}
+.topSectionPlaying-1J5E4n .tabBar-2MuP6-{
+    box-shadow:  6px 6px 6px #2e9ad9, -6px -6px 6px #3ed0ff;
+}
+.tabBarItem-1b8RUP[style="border-color: rgb(255, 255, 255); color: rgb(255, 255, 255);"]{
+    color: #fff;
+    box-shadow: inset 6px 6px 16px #2e9ad9, 
+    inset -6px -6px 16px #3ed0ff;
+}
+/* -- Begin Message Wrapper -- */
+.avatar-1BDn8e.clickable-1bVtEA{
+    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+}
+/* -- Begin Settings Panels -- */
+/* Profile Card */
+.userSettingsAccount-2eMFVR .userInfoViewing-16kqK3 .wrapper-3t9DeA::after{
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absoute;
+    box-shadow: var(--neumo-circular-shadow);
+    border-radius: 50%;
+}
+/* Animation Keyframes */
+@keyframes surface-raise{
+    from{
+        box-shadow:  0px 0px 0px #1c1e21, -0px -0px 0px #34383d;
+    }
+}

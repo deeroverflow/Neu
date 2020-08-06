@@ -30,8 +30,8 @@
     /* Neumoocord Values */
     --neumo-background: #282b2f;
     --neumo-accent: #36b5ff;
-    --neumo-circular-shadow-inset: inset 6px 6px 10px #323232, inset -6px -6px 10px #3e3e3e;
-    --neumo-circular-shadow:  6px 6px 16px #323232, -6px -6px 16px #3e3e3e;
+    --neumo-shadow-inset: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438;
+    --neumo-shadow: 6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
     --neumo-shadow-blur: 16px;
 }
 /* -- Background Color Changes/Misc -- */
@@ -114,7 +114,10 @@
     width: 100%;
     z-index: 102;
 }
-.theme-light .side-8zPYf6 div:not(:nth-child(19)){
+.theme-light.platform-osx .side-8zPYf6 div:not(:nth-child(19)){
+    display: none;
+}
+.theme-light.platform-win .side-8zPYf6 div:not(:nth-child(16)){
     display: none;
 }
 .theme-light div[layer-id="user-settings"]{
@@ -128,25 +131,28 @@
     content:"";
     background: var(--neumo-background);
     position: absolute;
-    left: -8px;
-    top: -8px;  
+    left: -5px;
+    top: -5px;  
     border-radius: 50%;
-    width: calc(100% + 16px);
-    height: calc(100% + 16px);
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
     box-shadow: inset 6px 6px 6px #222528, inset -6px -6px 6px #2e3136;
 }
 .layerContainer-yqaFcK .wrapper-3t9DeA::after{
     content:"";
     position: absolute;
-    left: -8px;
-    top: -8px;  
+    left: -5px;
+    top: -5px;  
     border-radius: 50%;
-    width: calc(100% + 16px);
-    height: calc(100% + 16px);
-    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    box-shadow: var(--neumo-shadow);
 }
 .userPopout-3XzG_A{
-    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+    animation: surface-raise-scale 100ms cubic-bezier(.35,.75,.3,1);
+    box-shadow: var(--neumo-shadow);
+    -webkit-box-shadow: var(--neumo-shadow);
+    animation-delay: 0.00001ms;
 }
 .headerNormal-T_seeN .headerTag-2pZJzA{
     display: flex;
@@ -172,7 +178,7 @@
 /* -- Full Profile Popout -- */
 .connectedAccount-36nQx7{
     border-radius: 16px;
-    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+    box-shadow: var(--neumo-shadow);
     border: none!important;
     background: var(--neumo-background);
 }
@@ -193,10 +199,11 @@
     justify-content: center;
     width: auto;
     border-radius: 128px;
+    width: 500px;
 }
 .topSectionNormal-2-vo2m .tabBar-2MuP6-{
     background: var(--neumo-background);
-    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+    box-shadow: var(--neumo-shadow);
 }
 .tabBarItem-1b8RUP{
     height: 40px;
@@ -211,7 +218,7 @@
 }
 .topSectionNormal-2-vo2m .tabBarItem-1b8RUP.selected-3s45Ha{
     background: var(--neumo-background);
-    box-shadow: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438
+    box-shadow: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438;
 }
 /* Active in Presence */
 .topSectionPlaying-1J5E4n{
@@ -230,7 +237,43 @@
 }
 /* -- Begin Message Wrapper -- */
 .avatar-1BDn8e.clickable-1bVtEA{
-    box-shadow:  6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
+    box-shadow: var(--neumo-shadow);
+}
+.cozy-3raOZG .contents-2mQqc9 .avatar-1BDn8e{
+    top: 30px;
+}
+.message-2qnXI6{
+    margin: 0!important;
+}
+.message-2qnXI6:hover{
+    background: none!important;
+}
+.message-2qnXI6 .header-23xsNx{
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+.message-2qnXI6:hover .header-23xsNx{
+    opacity: 1;
+    animation: ease-in-vertical 150ms ease;
+}
+.cozy-3raOZG.wrapper-2a6GCs .container-1ov-mD,
+.cozy-3raOZG.wrapper-2a6GCs .markup-2BOw-j:not(.embedWrapper-lXpS3L){
+    padding: 10px 0 10px 10px;
+    margin: 6px 0;
+    border-radius: 0 16px 16px 16px;
+    box-shadow: var(--neumo-shadow);
+}
+/* -- Voice Calls -- */
+.controlButton-2MhVEL{
+    box-shadow: var(--neumo-shadow)!important;
+    border-radius: 50%;
+    overflow: visible;
+}
+.contextMenuContainer-2HlOMK .contextMenuNub-3yOOYo{
+    display: none;
+}
+.colorable-1bkp8v.primaryDark-3mSFDl{
+    background: var(--neumo-background)!important;
 }
 /* -- Begin Settings Panels -- */
 /* Profile Card */
@@ -246,6 +289,20 @@
 /* Animation Keyframes */
 @keyframes surface-raise{
     from{
-        box-shadow:  0px 0px 0px #1c1e21, -0px -0px 0px #34383d;
+        opacity: 0;
     }
+}
+@keyframes surface-raise-scale{
+    from{
+        transform: scale(0.85);
+    }
+}
+@keyframes ease-in-vertical{
+    from{
+        transform: translate3d(0,4px,0);
+        opacity: 0;
+    }
+}
+.animatorRight-3i_YPs{
+    transform: none!important;
 }

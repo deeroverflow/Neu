@@ -1,4 +1,4 @@
-/*//META{"name":"Neumocord","description":"Discord, but neumorphic","author":"Luke Alan","version":"0.1"}*//**/
+/*//META{"name":"Neumocord Beta Import","description":"Discord, but neumorphic","author":"Luke Alan","version":"0.1"}*//**/
 /*
  Copyright Luke Alan 2020, all Google material assets are copyright of Google Inc.
 /* 
@@ -275,6 +275,26 @@
 .colorable-1bkp8v.primaryDark-3mSFDl{
     background: var(--neumo-background)!important;
 }
+.voiceCallWrapper-3kPwHm .participant-1lOCsd{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.voiceCallWrapper-3kPwHm .participant-1lOCsd .wrapper-2QE8vf::before{
+    content:"";
+    background: var(--neumo-background);
+    position: absolute;
+    left: -7px;
+    top: -7px;  
+    border-radius: 50%;
+    width: calc(100% + 14px);
+    height: calc(100% + 14px);
+    box-shadow: var(--neumo-shadow-inset);
+}
+.callAvatarMask-1SLlRi foreignObject{
+    border-radius: 50%;
+    box-shadow: var(--neumo-shadow);
+}
+
 /* -- Begin Settings Panels -- */
 /* Profile Card */
 .userSettingsAccount-2eMFVR .userInfoViewing-16kqK3 .wrapper-3t9DeA::after{

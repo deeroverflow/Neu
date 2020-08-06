@@ -1,4 +1,4 @@
-/*//META{"name":"Neumocord Beta Import","description":"Discord, but neumorphic","author":"Luke Alan","version":"0.1"}*//**/
+/*//META{"name":"Neumocord","description":"Discord, but neumorphic","author":"Luke Alan","version":"0.1"}*//**/
 /*
  Copyright Luke Alan 2020, all Google material assets are copyright of Google Inc.
 /* 
@@ -117,7 +117,7 @@
 .theme-light.platform-osx .side-8zPYf6 div:not(:nth-child(19)){
     display: none;
 }
-.theme-light.platform-win .side-8zPYf6 div:not(:nth-child(16)){
+.theme-light.platform-win .side-8zPYf6 div:not(:nth-child(20)){
     display: none;
 }
 .theme-light div[layer-id="user-settings"]{
@@ -236,33 +236,79 @@
     inset -6px -6px 16px #3ed0ff;
 }
 /* -- Begin Message Wrapper -- */
-.avatar-1BDn8e.clickable-1bVtEA{
+.scrollerInner-2ircaP .avatar-1BDn8e.clickable-1bVtEA{
     box-shadow: var(--neumo-shadow);
 }
-.cozy-3raOZG .contents-2mQqc9 .avatar-1BDn8e{
-    top: 30px;
+.scrollerInner-2ircaP .cozy-3raOZG .contents-2mQqc9 .avatar-1BDn8e{
+    top: -5px;
 }
-.message-2qnXI6{
+.scrollerInner-2ircaP .cozy-3raOZG .contents-2mQqc9 .avatar-1BDn8e,
+.scrollerInner-2ircaP .cozy-3raOZG .timestamp-3ZCmNB.alt-1uNpEt{
+    left: -55px;
+}
+.scrollerInner-2ircaP .message-2qnXI6{
     margin: 0!important;
 }
-.message-2qnXI6:hover{
+.scrollerInner-2ircaP .message-2qnXI6:hover{
     background: none!important;
 }
-.message-2qnXI6 .header-23xsNx{
+.scrollerInner-2ircaP .message-2qnXI6 .header-23xsNx{
     opacity: 0;
     transition: opacity 150ms ease;
+    position: absolute;
+    z-index: 40;
+    top: -24px;
+    left: 0px;
+    background-color: var(--neumo-background);
+    padding: 4px 10px 0 10px;
+    box-shadow: 0px -4px 6px #34383d;
+    border-radius: 14px 14px 0px 0px;
 }
-.message-2qnXI6:hover .header-23xsNx{
+.scrollerInner-2ircaP .message-2qnXI6 .markup-2BOw-j{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.scrollerInner-2ircaP .message-2qnXI6:hover .header-23xsNx{
     opacity: 1;
     animation: ease-in-vertical 150ms ease;
 }
-.cozy-3raOZG.wrapper-2a6GCs .container-1ov-mD,
-.cozy-3raOZG.wrapper-2a6GCs .markup-2BOw-j:not(.embedWrapper-lXpS3L){
-    padding: 10px 0 10px 10px;
-    margin: 6px 0;
+.scrollerInner-2ircaP .message-2qnXI6:not(.embedWrapper-lXpS3L){
+    margin-top: 10px!important;
+    margin-left: 70px!important;
+    margin-right: 25px!important;
+    padding: 1px 0 0 0!important;
     border-radius: 0 16px 16px 16px;
     box-shadow: var(--neumo-shadow);
 }
+.scrollerInner-2ircaP .cozy-3raOZG .messageContent-2qWWxC{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-left: -60px;
+}
+.scrollerInner-2ircaP .cozyMessage-3V1Y8y.groupStart-23k01U{
+    min-height: unset!important;
+    margin-top: 36px!important;
+}
+.scrollerInner-2ircaP .cozyMessage-3V1Y8y:not(.groupStart-23k01U){
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+}
+/* Message Buttons */
+.scrollerInner-2ircaP .cozyMessage-3V1Y8y .buttons-cl5qTG .wrapper-2aW0bm{
+    border-radius: 50px;
+    box-shadow: var(--neumo-shadow)!important;
+    overflow: hidden!important;
+    opacity: 0;
+    transition: opacity 150ms ease!important;
+}
+.scrollerInner-2ircaP .cozyMessage-3V1Y8y:hover .buttons-cl5qTG .wrapper-2aW0bm{
+    opacity: 1;
+}
+.scrollerInner-2ircaP .cozyMessage-3V1Y8y:not(.groupStart-23k01U) .buttons-cl5qTG {
+    position: relative;
+    top: -16px;
+}
+/* imageWrapper-2p5ogY
 /* -- Voice Calls -- */
 .controlButton-2MhVEL{
     box-shadow: var(--neumo-shadow)!important;
@@ -294,7 +340,6 @@
     border-radius: 50%;
     box-shadow: var(--neumo-shadow);
 }
-
 /* -- Begin Settings Panels -- */
 /* Profile Card */
 .userSettingsAccount-2eMFVR .userInfoViewing-16kqK3 .wrapper-3t9DeA::after{

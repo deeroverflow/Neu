@@ -30,9 +30,12 @@
     /* Neumoocord Values */
     --neumo-background: #282b2f;
     --neumo-accent: #36b5ff;
+    --neumo-accent-mention: rgba(250, 14, 14, 0.3);
     --neumo-shadow-inset: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438;
     --neumo-shadow: 6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
     --neumo-shadow-blur: 16px;
+    /* 0 to disable, 1 to enable */
+    --neumo-message-sender-always-visible: 0;
 }
 /* -- Background Color Changes/Misc -- */
 .theme-dark .container-1D34oG,
@@ -129,7 +132,10 @@
 .fade-18lLrh{
     opacity: 1;
 }
-.layerContainer-yqaFcK .wrapper-3t9DeA::before{
+.userPopout-3XzG_A .headerNormal-T_seeN .flex-1xMQg5 .avatarWrapperNormal-3wFMbf svg{
+    z-index: 2;
+}
+.userPopout-3XzG_A .headerNormal-T_seeN .flex-1xMQg5 .avatarWrapperNormal-3wFMbf::before{
     content:"";
     background: var(--neumo-background);
     position: absolute;
@@ -139,8 +145,9 @@
     width: calc(100% + 10px);
     height: calc(100% + 10px);
     box-shadow: inset 6px 6px 6px #222528, inset -6px -6px 6px #2e3136;
+    z-index: 1;
 }
-.layerContainer-yqaFcK .wrapper-3t9DeA::after{
+.userPopout-3XzG_A .headerNormal-T_seeN .flex-1xMQg5 .avatarWrapperNormal-3wFMbf::after{
     content:"";
     position: absolute;
     left: -5px;
@@ -149,6 +156,7 @@
     width: calc(100% + 10px);
     height: calc(100% + 10px);
     box-shadow: var(--neumo-shadow);
+    z-index: 1;
 }
 .userPopout-3XzG_A{
     animation: surface-raise-scale 100ms cubic-bezier(.35,.75,.3,1);
@@ -188,7 +196,7 @@
 .userInfoSection-2acyCx+.userInfoSection-2acyCx{
     border: none!important;
 }
-.lookFilled-1Gx00P.colorGreen-29iAKY{
+.flex-1xMQg5 .lookFilled-1Gx00P.colorGreen-29iAKY{
     border-radius: 16px;
 }
 .tabBarContainer-1s1u-z{
@@ -242,10 +250,13 @@
 .scrollerInner-2ircaP .avatar-1BDn8e.clickable-1bVtEA{
     box-shadow: var(--neumo-shadow);
 }
-.scrollerInner-2ircaP .cozy-3raOZG .contents-2mQqc9 .avatar-1BDn8e{
-    top: -5px;
+.scrollerInner-2ircaP .cozy-3raOZG.mentioned-xhSam7{
+    background-color: var(--neumo-accent-mention)!important;
 }
 .scrollerInner-2ircaP .cozy-3raOZG .contents-2mQqc9 .avatar-1BDn8e{
+    top: 0px;
+    height: 43px;
+    width: 43px;
     left: -55px;
 }
 .scrollerInner-2ircaP .cozy-3raOZG .timestamp-3ZCmNB.alt-1uNpEt{
@@ -254,11 +265,11 @@
 .scrollerInner-2ircaP .message-2qnXI6{
     margin: 0!important;
 }
-.scrollerInner-2ircaP .message-2qnXI6:hover{
-    background: none!important;
+.scrollerInner-2ircaP .message-2qnXI6:not(.mentioned-xhSam7):hover{
+    background: unset!important;
 }
 .scrollerInner-2ircaP .message-2qnXI6 .header-23xsNx{
-    opacity: 0;
+    opacity: var(--neumo-message-sender-always-visible);
     transition: opacity 150ms ease;
     position: absolute;
     z-index: 40;
@@ -316,8 +327,22 @@
     position: relative;
     top: -16px;
 }
-/* imageWrapper-2p5ogY
+.scrollerInner-2ircaP #messages-1.cozyMessage-3V1Y8y .buttons-cl5qTG {
+    position: relative;
+    top: -16px!important;
+}
+.scrollerInner-2ircaP .mentioned-xhSam7:before{
+    content: none!important;
+}
+/* Mesage Media Content */
+.scrollerInner-2ircaP .imageWrapper-2p5ogY{
+    margin-left: 3px;
+    border-radius: 4px 0 0 14px;
+}
 /* -- Voice Calls -- */
+.controlButton-2MhVEL foreignObject{
+    mask: none!important;
+}
 .controlButton-2MhVEL{
     box-shadow: var(--neumo-shadow)!important;
     border-radius: 50%;
@@ -328,6 +353,15 @@
 }
 .colorable-1bkp8v.primaryDark-3mSFDl{
     background: var(--neumo-background)!important;
+}
+.voiceCallWrapper-3kPwHm .status-1WEaea{
+    width: 42px;
+    height: 42px;
+    padding: 19px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.15);
 }
 .voiceCallWrapper-3kPwHm .participant-1lOCsd{
     margin-left: 10px;
@@ -346,7 +380,10 @@
 }
 .callAvatarMask-1SLlRi foreignObject{
     border-radius: 50%;
-    box-shadow: var(--neumo-shadow);
+    mask: none!important;
+}
+.voiceCallWrapper-3kPwHm .staticButton-1B0rfQ{
+    background: red!;
 }
 /* -- Begin Settings Panels -- */
 /* Profile Card */
@@ -378,4 +415,7 @@
 }
 .animatorRight-3i_YPs{
     transform: none!important;
+}
+.popoutLeft-3aViER{
+    transform: translateX(-100%) translateY(0%) translateZ(0px)!important;
 }

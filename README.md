@@ -9,3 +9,4 @@ Neuomorphic Design for Discord
 - [ ] Context Menus
 - [ ] Search
 - [ ] Every Settings Page
+- [ ] Scrollers

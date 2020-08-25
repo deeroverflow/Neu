@@ -34,6 +34,8 @@
     --neumo-shadow-inset: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438;
     --neumo-shadow: 6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
     --neumo-shadow-blur: 16px;
+
+    --window-refocus-timing: box-shadow 120ms cubic-bezier(.13,.91,.58,1), background 120ms cubic-bezier(.13,.91,.58,1);
     /* 0 to disable, 1 to enable */
     --neumo-message-sender-always-visible: 0;
 }
@@ -53,7 +55,7 @@
     z-index: 101;
 }
 .theme-light #app-mount::after{
-    content: "Neumocord is not intended for light mode. \A Please disable it in settings";
+    content: "Neumocord is not intended for light mode. \A Please disable it in settings. \A There will be light mode in the future.";
     width: 100%;
     top: 35%;
     white-space: pre-wrap;
@@ -62,7 +64,7 @@
     z-index: 101;
     color: #fff;
     font-weight: 450;
-    font-size: 24pt;
+    font-size: 18pt;
 }
 .theme-light .container-3baos1{
     margin: 0;
@@ -93,13 +95,13 @@
 .theme-light .container-3baos1 .button-14-BFJ:nth-child(3),
 .theme-light .container-3baos1 .button-14-BFJ:nth-child(3) .contents-18-Yxp svg{
     z-index: 1001;
-    width: 128px;
-    height: 128px;
+    width: 100px;
+    height: 100px;
 }
 .theme-light .container-3baos1 .button-14-BFJ:nth-child(3) .contents-18-Yxp svg{
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xOS40MyAxMi45OGMuMDQtLjMyLjA3LS42NC4wNy0uOThzLS4wMy0uNjYtLjA3LS45OGwyLjExLTEuNjVjLjE5LS4xNS4yNC0uNDIuMTItLjY0bC0yLTMuNDZjLS4xMi0uMjItLjM5LS4zLS42MS0uMjJsLTIuNDkgMWMtLjUyLS40LTEuMDgtLjczLTEuNjktLjk4bC0uMzgtMi42NUMxNC40NiAyLjE4IDE0LjI1IDIgMTQgMmgtNGMtLjI1IDAtLjQ2LjE4LS40OS40MmwtLjM4IDIuNjVjLS42MS4yNS0xLjE3LjU5LTEuNjkuOThsLTIuNDktMWMtLjIzLS4wOS0uNDkgMC0uNjEuMjJsLTIgMy40NmMtLjEzLjIyLS4wNy40OS4xMi42NGwyLjExIDEuNjVjLS4wNC4zMi0uMDcuNjUtLjA3Ljk4cy4wMy42Ni4wNy45OGwtMi4xMSAxLjY1Yy0uMTkuMTUtLjI0LjQyLS4xMi42NGwyIDMuNDZjLjEyLjIyLjM5LjMuNjEuMjJsMi40OS0xYy41Mi40IDEuMDguNzMgMS42OS45OGwuMzggMi42NWMuMDMuMjQuMjQuNDIuNDkuNDJoNGMuMjUgMCAuNDYtLjE4LjQ5LS40MmwuMzgtMi42NWMuNjEtLjI1IDEuMTctLjU5IDEuNjktLjk4bDIuNDkgMWMuMjMuMDkuNDkgMCAuNjEtLjIybDItMy40NmMuMTItLjIyLjA3LS40OS0uMTItLjY0bC0yLjExLTEuNjV6TTEyIDE1LjVjLTEuOTMgMC0zLjUtMS41Ny0zLjUtMy41czEuNTctMy41IDMuNS0zLjUgMy41IDEuNTcgMy41IDMuNS0xLjU3IDMuNS0zLjUgMy41eiIvPjwvc3ZnPg==");
     background-repeat: no-repeat;
-    background-size: 128px;
+    background-size: 100px;
 }
 /* Settings */
 .sidebarRegion-VFTUkN,
@@ -135,7 +137,7 @@
 .headerPlaying-j0WQBV{
     background: var(--neumo-accent);
 }
-.userPopout-3XzG_A .headerNormal-T_seeN .flex-1xMQg5 .avatarWrapperNormal-3wFMbf svg{
+.userPopout-3XzG_A .flex-1xMQg5 .avatarWrapperNormal-3wFMbf svg{
     z-index: 2;
 }
 .userPopout-3XzG_A .headerNormal-T_seeN .flex-1xMQg5 .avatarWrapperNormal-3wFMbf::before{
@@ -161,12 +163,38 @@
     box-shadow: var(--neumo-shadow);
     z-index: 1;
 }
+.userPopout-3XzG_A .headerPlaying-j0WQBV .flex-1xMQg5 .avatarWrapperNormal-3wFMbf::before{
+    content:"";
+    background: var(--neumo-accent);
+    position: absolute;
+    left: -5px;
+    top: -5px;  
+    border-radius: 50%;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    box-shadow: inset 6px 6px 6px #2e9ad9, inset -6px -6px 6px #3ed0ff;
+    z-index: 1;
+}
+.userPopout-3XzG_A .headerPlaying-j0WQBV .flex-1xMQg5 .avatarWrapperNormal-3wFMbf::after{
+    content:"";
+    position: absolute;
+    left: -5px;
+    top: -5px;  
+    border-radius: 50%;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    box-shadow:  6px 6px 6px #2e9ad9, -6px -6px 6px #3ed0ff;
+    z-index: 1;
+}
 .userPopout-3XzG_A{
     animation: surface-raise-scale 100ms cubic-bezier(.35,.75,.3,1);
-    box-shadow: var(--neumo-shadow);
-    -webkit-box-shadow: var(--neumo-shadow);
+    transition: var(--window-refocus-timing);
     /*Temporary fix to remove motion stutter???*/
     animation-delay: 0.00001ms;
+}
+.app-focused .userPopout-3XzG_A{
+    box-shadow: var(--neumo-shadow);
+    -webkit-box-shadow: var(--neumo-shadow);
 }
 .headerNormal-T_seeN .headerTag-2pZJzA{
     display: flex;
@@ -221,9 +249,12 @@
     width: 435px;
     margin-right: 1px!important;
 }
+.app-focused .topSectionNormal-2-vo2m .tabBar-2MuP6-{
+    box-shadow: var(--neumo-shadow);
+}
 .topSectionNormal-2-vo2m .tabBar-2MuP6-{
     background: var(--neumo-background);
-    box-shadow: var(--neumo-shadow);
+    transition: var(--window-refocus-timing);
 }
 .tabBarItem-1b8RUP{
     height: 40px;
@@ -238,6 +269,9 @@
 }
 .topSectionNormal-2-vo2m .tabBarItem-1b8RUP.selected-3s45Ha{
     background: var(--neumo-background);
+    transition: var(--window-refocus-timing);
+}
+.app-focused .topSectionNormal-2-vo2m .tabBarItem-1b8RUP.selected-3s45Ha{
     box-shadow: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438;
 }
 /* Active in Presence */
@@ -267,7 +301,7 @@
     box-shadow: inset 6px 6px 6px #199d47, inset -6px -6px 6px #21d561;
 }
 /* -- Begin Messages Wrapper -- */
-.chat-3bRxxu .avatar-1BDn8e.clickable-1bVtEA{
+.app-focused .chat-3bRxxu .avatar-1BDn8e.clickable-1bVtEA{
     box-shadow: var(--neumo-shadow);
 }
 .chat-3bRxxu .cozy-3raOZG.mentioned-xhSam7{
@@ -314,7 +348,20 @@
     margin-right: 25px!important;
     padding: 1px 0 0 0!important;
     border-radius: 4px 16px 16px 16px;
+    background: #303438;
+}
+.app-focused .chat-3bRxxu .message-2qnXI6:not(.embedWrapper-lXpS3L)::before{
     box-shadow: var(--neumo-shadow);
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px 16px 16px 16px;
+}
+.app-focused .chat-3bRxxu .message-2qnXI6:not(.embedWrapper-lXpS3L):not(.mentioned-xhSam7){
+    background: var(--neumo-background);
 }
 .chat-3bRxxu .cozy-3raOZG .messageContent-2qWWxC{
     padding-top: 5px;
@@ -380,6 +427,13 @@
     box-shadow: var(--neumo-shadow);
     border-radius: 80px;
     margin: 10px 0 10px 0;
+}
+/* Message Input Field */
+.channelTextArea-rNsIhG{
+    overflow: visible!important;
+}
+.channelTextArea-rNsIhG .textArea-12jD-V{
+    box-shadow: var(--neumo-shadow);
 }
 /* -- End Messages Wrapper -- */
 /* -- Begin Channel/DM List Scroller -- */

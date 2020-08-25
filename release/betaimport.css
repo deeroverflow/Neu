@@ -61,7 +61,7 @@
     z-index: 101;
 }
 .theme-light #app-mount::after{
-    content: "Neumocord is not intended for light mode. \A Please disable it in settings. \A There will be light mode in the future.";
+    content: "Neu is not intended for light mode. \A Please disable it in settings. \A There will be light mode in the future.";
     width: 100%;
     top: 35%;
     white-space: pre-wrap;

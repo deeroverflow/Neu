@@ -1,4 +1,4 @@
-# neumocord
+# Neu
 Neuomorphic Design for Discord
 ## todo
 - [x] Messages Wrapper (98%)

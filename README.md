@@ -1,4 +1,4 @@
-# Neu
+# Neu (short for neumorphic)
 Neuomorphic Design for Discord
 ## todo
 - [x] Messages Wrapper (98%)

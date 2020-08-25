@@ -33,7 +33,7 @@
     /* Neumoocord Values */
     --neumo-background: #282b2f;
     --neumo-accent: #36b5ff;
-    --neumo-accent-mention: rgba(250, 14, 14, 0.3);
+    --neumo-accent-mention: #672225;
     --neumo-shadow-inset: inset 6px 6px 6px #202226, inset -6px -6px 6px #303438;
     --neumo-shadow: 6px 6px 6px #1c1e21, -6px -6px 6px #34383d;
     --neumo-shadow-blur: 16px;
@@ -323,11 +323,11 @@
     opacity: var(--neumo-message-sender-always-visible);
     transition: opacity 150ms ease;
     position: absolute;
-    z-index: 40;
+    z-index: 1;
     top: -24px;
     left: 0px;
     background-color: var(--neumo-background);
-    padding: 4px 10px 0 10px;
+    padding: 4px 10px 1px 10px;
     box-shadow: 0px -4px 6px #34383d;
     border-radius: 14px 14px 0px 0px;
 }
@@ -345,8 +345,6 @@
     margin-right: 25px!important;
     padding: 1px 0 0 0!important;
     border-radius: 4px 16px 16px 16px;
-    background: #303438;
-    transition: background var(--window-refocus-timing);
 }
 .chat-3bRxxu .message-2qnXI6:not(.embedWrapper-lXpS3L)::before{
     box-shadow: var(--neumo-shadow);
@@ -359,9 +357,8 @@
     left: 0;
     border-radius: 4px 16px 16px 16px;
     opacity: 1;
-    transition: opacity var(--window-refocus-timing);
+    pointer-events: none!important;
 }
-
 .chat-3bRxxu .cozy-3raOZG .messageContent-2qWWxC{
     padding-top: 5px;
     padding-bottom: 10px;
@@ -370,6 +367,7 @@
 .chat-3bRxxu .cozyMessage-3V1Y8y.groupStart-23k01U{
     min-height: unset!important;
     margin-top: 36px!important;
+    z-index: 42444;
 }
 .chat-3bRxxu .cozyMessage-3V1Y8y:not(.groupStart-23k01U){
     margin-top: 20px!important;

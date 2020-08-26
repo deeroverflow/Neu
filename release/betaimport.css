@@ -27,15 +27,15 @@
 /* Root Values */
 :root{
     /* Default Discord Values */
-    --background-primary: #282b2f;
-    --background-secondary: #282b2f;
-    --background-secondary-alt: #282b2f;
-    --background-tertiary: #282b2f;
-    --background-accent: #282b2f;
-    --background-floating: #282b2f;
-    --background-mobile-primary: #282b2f;
-    --background-mobile-secondary: #282b2f;
-    --channeltextarea-background: #282b2f;
+    --background-primary: var(--neu-background);
+    --background-secondary: var(--neu-background);
+    --background-secondary-alt: var(--neu-background);
+    --background-tertiary: var(--neu-background);
+    --background-accent: var(--neu-background);
+    --background-floating: var(--neu-background);
+    --background-mobile-primary: var(--neu-background);
+    --background-mobile-secondary: var(--neu-background);
+    --channeltextarea-background: var(--neu-background);
     /* Neumoocord Values */
     --neu-background: #282b2f;
     --neu-accent: #36b5ff;
@@ -536,16 +536,9 @@
     border-radius: 100px;
     box-shadow: var(--neu-shadow);
 }
-.panels-j1Uci_ .button-14-BFJ{
-    border-radius: 50%;
-    background: linear-gradient(145deg, #2b2e32, #24272a);
-    box-shadow:  5px 5px 8px #222528, -5px -5px 8px #2e3136;
-}
-.panels-j1Uci_ .button-14-BFJ:not(:last-child){
-    margin-right: 3px;
-}
-.panels-j1Uci_ .button-14-BFJ:active{
-    background: linear-gradient(145deg, #24272a, #2b2e32);
+.container-1giJp5{
+    border-bottom: none!important;
+
 }
 /* -- Begin Server List -- */
 .wrapper-1Rf91z,
@@ -604,6 +597,8 @@
 /* Profile Card */
 .userInfoViewing-16kqK3{
     border-radius: 128px;
+    background: var(--neu-background);
+    box-shadow: var(--neu-shadow);
 }
 .userInfoViewing-16kqK3 .button-38aScr{
     top: 50px;
@@ -620,9 +615,27 @@
 div[role="menu"].menu-3sdvDG{
     box-shadow: var(--neu-shadow);
 }
-div[role="menu"].menu-3sdvDG .customItem-a8hq58 .button-F9qN4n{
-    box-shadow: var(--neu-shadow-inset);
+/* -- Begin Buttons -- */
+.button-38aScr.lookFilled-1Gx00P.colorBrand-3pXr91{
+    box-shadow:  5px 5px 5px #222528, -5px -5px 5px #2e3136;
+    background: linear-gradient(145deg, #2b2e32, #24272a);
+    border-radius: 16px;
 }
+.button-38aScr.lookFilled-1Gx00P.colorBrand-3pXr91:active{
+    background: linear-gradient(145deg, #24272a, #2b2e32);
+}
+.panels-j1Uci_ .button-14-BFJ{
+    border-radius: 50%;
+    background: linear-gradient(145deg, #2b2e32, #24272a);
+    box-shadow:  5px 5px 8px #222528, -5px -5px 8px #2e3136;
+}
+.panels-j1Uci_ .button-14-BFJ:not(:last-child){
+    margin-right: 3px;
+}
+.panels-j1Uci_ .button-14-BFJ:active{
+    background: linear-gradient(145deg, #24272a, #2b2e32);
+}
+/* -- End Buttons */
 /* Animation Keyframes/Animation Removal */
 @keyframes surface-raise{
     from{

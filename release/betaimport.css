@@ -1,4 +1,4 @@
-/*//META{"name":"Neu","description":"A nuemorpic based Discord theme","author":"Luke Alan","version":"0.1"}*//**/
+/*//META{"name":"Neumocord","description":"Discord, but neumorphic","author":"Luke Alan","version":"0.1"}*//**/
 /*
  Copyright Luke Alan 2020, all Google material assets are copyright of Google Inc.
 /* 
@@ -468,7 +468,8 @@
     overflow: hidden;
 }
 .channelTextArea-rNsIhG .attachWrapper-2TRKBi button.attachButton-2WznTc .attachButtonInner-PQjIyk{
-    box-shadow: var(--neu-shadow-inset);
+    background: linear-gradient(145deg, #2b2e32, #24272a);
+    box-shadow:  5px 5px 8px #222528, -5px -5px 8px #2e3136;
     border-radius: 50%;
 }
 .channelTextArea-rNsIhG .attachWrapper-2TRKBi button.attachButton-2WznTc .attachButtonInner-PQjIyk::before{
@@ -493,8 +494,19 @@
 }
 /* -- End Messages Wrapper -- */
 /* -- Begin Friends page (/channels/@me) -- */
-/* Tab List
-.tabBody-3YRQ8W */
+/* Tab List */
+.tabBody-3YRQ8W .peopleListItem-2nzedh{
+    background: var(--neu-background)!important;
+    margin: 15px 30px 15px 20px;
+    padding: 16px 10px;
+    border: none!important;
+    box-shadow: var(--neu-shadow);
+    border-radius: 32px;
+}
+.tabBody-3YRQ8W .peopleListItem-2nzedh .actionButton-uPB8Fs{
+    border-radius: 50%;
+    box-shadow:  5px 5px 6px #222528, -5px -5px 6px #2e3136;
+}
 /* Pill Style Thingy (SAVE FOR LAST) *
 .container-1D34oG .container-1r6BKw .children-19S4PO{
     pointer-events: none;
@@ -509,6 +521,12 @@
     overflow: visible;
     z-index: 1;
 }
+.base-3dtUhz{
+    left: 0;
+    padding-left: 72px;
+}
+/* -- End Channel/DM List Scroller -- */
+/* User Pill */
 .theme-dark .panels-j1Uci_{
     bottom: 10px;
     position: relative;
@@ -518,11 +536,17 @@
     border-radius: 100px;
     box-shadow: var(--neu-shadow);
 }
-.base-3dtUhz{
-    left: 0;
-    padding-left: 72px;
+.panels-j1Uci_ .button-14-BFJ{
+    border-radius: 50%;
+    background: linear-gradient(145deg, #2b2e32, #24272a);
+    box-shadow:  5px 5px 8px #222528, -5px -5px 8px #2e3136;
 }
-/* -- End Channel/DM List Scroller -- */
+.panels-j1Uci_ .button-14-BFJ:not(:last-child){
+    margin-right: 3px;
+}
+.panels-j1Uci_ .button-14-BFJ:active{
+    background: linear-gradient(145deg, #24272a, #2b2e32);
+}
 /* -- Begin Server List -- */
 .wrapper-1Rf91z,
 .wrapper-1Rf91z .scroller-2TZvBN{
@@ -592,6 +616,13 @@
     overflow-wrap: break-word;
 }
 /* -- End Settings Panels -- */
+/* -- Context Menus Begin -- */
+div[role="menu"].menu-3sdvDG{
+    box-shadow: var(--neu-shadow);
+}
+div[role="menu"].menu-3sdvDG .customItem-a8hq58 .button-F9qN4n{
+    box-shadow: var(--neu-shadow-inset);
+}
 /* Animation Keyframes/Animation Removal */
 @keyframes surface-raise{
     from{

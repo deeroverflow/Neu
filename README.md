@@ -1,8 +1,7 @@
 # Neu (short for neumorphic)
 Neuomorphic Design for Discord
 ## todo
-- [x] Messages Wrapper
-  (working on efficiency with shadow animations on window refocused)
+- [x] Messages Wrapper (stil have some tinkering to do but it's done.)
 - [ ] Chat Input Field
 - [ ] Full Profile Popouts
 - [ ] Dropdowns

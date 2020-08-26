@@ -8,5 +8,5 @@ Neuomorphic Design for Discord
 - [ ] Toggleswitches
 - [ ] Context Menus
 - [ ] Search
-- [ ] Every Settings Page
+- [ ] Settings Page (in the works)
 - [ ] Scrollers

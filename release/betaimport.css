@@ -538,7 +538,6 @@
 }
 .container-1giJp5{
     border-bottom: none!important;
-
 }
 /* -- Begin Server List -- */
 .wrapper-1Rf91z,
@@ -603,6 +602,77 @@
 .userInfoViewing-16kqK3 .button-38aScr{
     top: 50px;
 }
+/* Sliders */
+.bar-2Qqk5Z.microphone-2rtdHw{
+    height: 12px;
+    top: 14px!important;
+}
+.bar-2Qqk5Z:not(.microphone-2rtdHw){
+    background: var(--neu-background);
+    height: 12px;
+    top: 14px;
+    overflow: visible;
+    border-radius: 16px;
+    box-shadow: var(--neu-shadow-inset);
+}
+.inputSensitivityToggle-2LKb8o .bar-2Qqk5Z[style="background: rgb(105, 196, 154);"] .barFill-23-gu-{
+    background: var(--neu-accent)!important;
+    box-shadow: 1px 1px 2px #33acf2;
+}
+.inputSensitivityToggle-2LKb8o .bar-2Qqk5Z[style="background: rgb(105, 196, 154);"]{
+    background: var(--neu-background)!important;
+}
+.bar-2Qqk5Z:not(.microphone-2rtdHw) .barFill-23-gu-{
+    background: var(--neu-accent);
+    box-shadow: 1px 1px 2px #33acf2;
+    border-radius: 16px;
+}
+.track-11EASc .grabber-3mFHz2{
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: none!important; 
+    box-shadow: 2px 2px 12px #000000;
+}
+/* Toggleswitches */
+.themeDefault-24hCdX.sizeDefault-2YlOZr:after {
+    box-shadow: 1.25px 1.25px 3px #000000!important;
+}
+.switch-3wwwcV.themeDefault-24hCdX{
+    border-radius: 39px;
+    background: var(--neu-background);
+    box-shadow: inset 2px 2px 4px #222528, 
+    inset -2px -2px 4px #2e3136;
+}
+.switch-3wwwcV.themeDefault-24hCdX.valueChecked-m-4IJZ{
+    background: var(--neu-accent);
+    box-shadow: inset 2px 2px 4px #2988bf, 
+    inset -2px -2px 4px #44e2ff;
+}
+.switch-3wwwcV.switchEnabled-V2WDBB:active:before{
+    display: none!important;
+}
+/* Dropdowns */
+.flexChild-faoVW3 .select-2TCrqx .css-1a8reka-control,
+.flexChild-faoVW3 .select-2TCrqx .css-2yldzf-control,
+.flexChild-faoVW3 .select-2TCrqx .css-1yegjoj-control{
+    border: none!important;
+    box-shadow: var(--neu-shadow);
+    border-radius: 26px;
+}
+.flexChild-faoVW3 .select-2TCrqx .css-1a8reka-control .css-1hwfws3,
+.flexChild-faoVW3 .select-2TCrqx .css-2yldzf-control .css-1hwfws3,
+.flexChild-faoVW3 .select-2TCrqx .css-1yegjoj-control .css-1hwfws3{
+    padding-left: 15px;
+    text-overflow: ellipsis;
+}
+.css-1k00wn6-singleValue{
+    max-width: calc(100% - 25px);
+}
+.css-1k00wn6-singleValue .deviceOptionLabel-22FM_u{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 /* Settings Branding */
 .side-8zPYf6 .info-1VyQPT div:last-child.colorMuted-HdFt4q::after{
     content: "\aNeu made by Luke";
@@ -623,6 +693,15 @@ div[role="menu"].menu-3sdvDG{
 }
 .button-38aScr.lookFilled-1Gx00P.colorBrand-3pXr91:active{
     background: linear-gradient(145deg, #24272a, #2b2e32);
+}
+.button-38aScr.lookOutlined-3sRXeN.colorRed-1TFJan{
+    background: linear-gradient(145deg, #ff4c4c, #d84040);
+    box-shadow:  5px 5px 5px #222528, -5px -5px 5px #2e3136;
+    border-radius: 16px;
+    color: #fff;
+}
+.button-38aScr.lookOutlined-3sRXeN.colorRed-1TFJan:active{
+    background: linear-gradient(145deg, #d84040, #ff4c4c);
 }
 .panels-j1Uci_ .button-14-BFJ{
     border-radius: 50%;
